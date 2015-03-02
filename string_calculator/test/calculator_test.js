@@ -55,5 +55,10 @@ describe("Calculator", function() {
 			expect(calc.add(string)).to.equal(50);
 		})
 
+		it("should return 5 when given \"2\n3\"", function() {
+			var string = "2\n3";
+			expect(calc.add(string)).to.equal(5);
+		})
+
 	})
 })
