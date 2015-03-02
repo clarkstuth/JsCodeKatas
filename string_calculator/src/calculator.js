@@ -8,7 +8,7 @@ function Calculator(delimiters) {
 Calculator.prototype = {
 
 	add: function(str) {
-		var re = "[" + String(this.delimiters) + "]";
+		var re = "[" + this.delimiters + "]";
 		var regex = new RegExp(re);
 		var parts = str.split(regex);
 
