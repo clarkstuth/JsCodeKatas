@@ -71,14 +71,12 @@ describe("Calculator", function() {
 		})
 
 		it("should return 11 when given delimiter \"p\" and \"5p2p4\"", function() {
-			calc = new Calculator("p");
-			var string = "5p2p4";
+			var string = "//p\n5p2p4";
 			expect(calc.add(string)).to.equal(11);
 		})
 
 		it("should return 52 when given delimiter \";,ze\" and \"10z15;12e3,12\"", function() {
-			calc = new Calculator(";,ze");
-			var string = "10z15;12e3,12";
+			var string = "//;,ze\n10z15;12e3,12";
 			expect(calc.add(string)).to.equal(52);
 		})
 
