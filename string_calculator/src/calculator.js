@@ -5,6 +5,7 @@ function Calculator() {
 Calculator.prototype = {
 
 	add: function(str) {
+
 		var regex;
 
 		if (str.indexOf("//") == 0) {
@@ -21,7 +22,13 @@ Calculator.prototype = {
 		var parts = str.split(regex);
 
 		var sum = parts.reduce(function(prev, cur, index, arr) {
-			return prev + +cur;
+			var val = +cur;
+
+			if (val < 0) {
+				throw new RangeError("negatives not allowed");
+			}
+
+			return prev + val;
 		}, 0);
 
 		return sum;

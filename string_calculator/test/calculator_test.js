@@ -80,5 +80,10 @@ describe("Calculator", function() {
 			expect(calc.add(string)).to.equal(52);
 		})
 
+		it("should throw an exception if given \"-2\"", function() {
+			var string = "-2";
+			expect(calc.add.bind(calc, string)).to.throw(RangeError, /negatives not allowed/);
+		})
+
 	})
 })
