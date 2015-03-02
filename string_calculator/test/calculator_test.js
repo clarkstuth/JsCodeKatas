@@ -70,12 +70,12 @@ describe("Calculator", function() {
 			expect(calc.add(string)).to.equal(21);
 		})
 
-		it("should return 11 when given delimiter \"p\" and \"5p2p4\"", function() {
+		it("should return 11 when given delimiter \"//p\\n5p2p4\"", function() {
 			var string = "//p\n5p2p4";
 			expect(calc.add(string)).to.equal(11);
 		})
 
-		it("should return 52 when given delimiter \";,ze\" and \"10z15;12e3,12\"", function() {
+		it("should return 52 when given delimiter \"//;,ze\\n10z15;12e3,12\"", function() {
 			var string = "//;,ze\n10z15;12e3,12";
 			expect(calc.add(string)).to.equal(52);
 		})
@@ -83,6 +83,31 @@ describe("Calculator", function() {
 		it("should throw an exception if given \"-2\"", function() {
 			var string = "-2";
 			expect(calc.add.bind(calc, string)).to.throw(RangeError, /negatives not allowed/);
+		})
+
+		it("should throw an exception if given \"1,2,-199\"", function() {
+			var string = "1,2,-199";
+			expect(calc.add.bind(calc, string)).to.throw(RangeError, /negatives not allowed/);
+		})
+
+		it("should throw an exception if given \"//c;\n1;9c-16\"", function() {
+			var string = "//c;\n1;9c-16";
+			expect(calc.add.bind(calc, string)).to.throw(RangeError, /negatives not allowed/);
+		})
+
+		it("should return 2 if given \"2,1001\"", function() {
+			var string = "2,1001";
+			expect(calc.add(string)).to.equal(2);
+		})
+
+		it("should return 52 if given \"//;q\n19999q49;3\"", function() {
+			var string = "//;q\n19999q49;3";
+			expect(calc.add(string)).to.equal(52);
+		})
+
+		it("should return 1 if given \"1001,1002,1,10000000000\"", function() {
+			var string = "1001,1002,1,10000000000";
+			expect(calc.add(string)).to.equal(1);
 		})
 
 	})

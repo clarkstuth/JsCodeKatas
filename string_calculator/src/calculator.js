@@ -1,5 +1,20 @@
 function Calculator() {
 	this.default_regex = "[,\n]";
+
+	this.reduceSumStringParts = function(previous, current, index, array) {
+		var val = +current;
+
+		if (val < 0) {
+			throw new RangeError("negatives not allowed");
+		}
+
+		if (current > 1000) {
+			return previous;
+		}
+
+		return previous + val;
+	}
+
 }
 
 Calculator.prototype = {
@@ -21,15 +36,7 @@ Calculator.prototype = {
 
 		var parts = str.split(regex);
 
-		var sum = parts.reduce(function(prev, cur, index, arr) {
-			var val = +cur;
-
-			if (val < 0) {
-				throw new RangeError("negatives not allowed");
-			}
-
-			return prev + val;
-		}, 0);
+		var sum = parts.reduce(this.reduceSumStringParts, 0);
 
 		return sum;
 	}
