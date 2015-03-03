@@ -1,0 +1,22 @@
+{
+  "name": "JsCodeKatas",
+  "version": "1.0.0",
+  "description": "Javascript testing examples and general playground.",
+  "main": "n/a",
+  "scripts": {
+    "test": "mocha-phantomjs [options] <test_page.html>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clarkstuth/JsCodeKatas.git"
+  },
+  "author": "Clark Stuth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clarkstuth/JsCodeKatas/issues"
+  },
+  "homepage": "https://github.com/clarkstuth/JsCodeKatas",
+  "dependencies": {
+    "mocha-phantomjs":"*"
+  }
+}
