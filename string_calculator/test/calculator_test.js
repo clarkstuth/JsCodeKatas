@@ -20,7 +20,7 @@ describe("Calculator", function() {
 			expect(calc.add(string)).to.equal(1);
 		})
 
-		it("should return 1 given \"7,\"", function() {
+		it("should return 7 given \"7,\"", function() {
 			var string = "7,";
 			expect(calc.add(string)).to.equal(7);
 		})
