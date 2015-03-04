@@ -18,5 +18,8 @@
   "homepage": "https://github.com/clarkstuth/JsCodeKatas",
   "dependencies": {
     "mocha-phantomjs":"*"
+  },
+  "scripts": {
+    "test": "node_modules/mocha-phantomjs/bin/mocha-phantomjs --web-security=no string_calculator/test_page_phantomjs.html"
   }
 }
